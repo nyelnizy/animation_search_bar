@@ -32,6 +32,7 @@ class AnimationSearchBar extends StatelessWidget {
     this.isBackButtonVisible,
     this.backIcon,
     this.duration,
+    this.focusNode,
   }) : super(key: key);
 
   ///
@@ -54,6 +55,7 @@ class AnimationSearchBar extends StatelessWidget {
   final TextStyle? hintStyle;
   final Decoration? searchFieldDecoration;
   late Duration? duration;
+  final FocusNode? focusNode;
   final TextEditingController searchTextEditingController;
   final Function(String) onChanged;
 
@@ -174,6 +176,7 @@ class AnimationSearchBar extends StatelessWidget {
                                 color: Colors.black.withOpacity(.2), width: .5),
                             borderRadius: BorderRadius.circular(15)),
                     child: TextField(
+                      focusNode: focusNode,
                       controller: searchTextEditingController,
                       cursorColor: cursorColor ?? Colors.lightBlue,
                       style: textStyle ??
